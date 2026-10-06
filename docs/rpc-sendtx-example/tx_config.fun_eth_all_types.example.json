@@ -1,0 +1,291 @@
+{
+  "rpcUrl": "http://127.0.0.1:13134",
+  "chainId": 12315,
+  "rpcTimeoutMs": 2000,
+  "dryRunStartNonce": 0,
+  "privateKey": "0x8fc570d5311a0ac6b72e7996a6f0cf473b1765518fe7b8a76612782c062507fa",
+  "from": "0x755Ccf704E17570b64E247f0794314e4C8E542CA",
+  "reportFile": "./tx_config_fun_eth_all_types_report.json",
+  "defaults": {
+    "gasLimit": "3000000",
+    "maxFeePerGasGwei": "1",
+    "maxPriorityFeePerGasGwei": "0.5",
+    "pollIntervalMs": 3000,
+    "receiptTimeoutMs": 120000,
+    "stripTransferJsonAmount": true,
+    "continueOnError": false
+  },
+  "common": {
+    "recipient": "0x000000000000000000000000000000000000dEaD",
+    "validator": "0x000000000000000000000000000000000000dEaD",
+    "assetType": "OHI",
+    "stakeUtxoHash": "0xCHANGE_ME_STAKE_UTXO_HASH",
+    "delegatingUtxoHash": "0xCHANGE_ME_DELEGATING_UTXO_HASH",
+    "lockUtxoHash": "0xCHANGE_ME_LOCK_UTXO_HASH",
+    "voteHash": "0xCHANGE_ME_VOTE_OR_PROPOSAL_HASH"
+  },
+  "transactions": [
+    {
+      "name": "tx: custom JSON OHI transfer, amount from raw tx value",
+      "saveAs": "txTransfer",
+      "to": "$config.common.recipient",
+      "valueEth": "0.00000001",
+      "jsonData": {
+        "type": "tx",
+        "asset_type": "$config.common.assetType",
+        "is_find_utxo": false,
+        "sponsor_gas": false,
+        "encoded_info": "fun_eth tx transfer"
+      }
+    },
+    {
+      "name": "transaction alias: custom JSON OHI transfer",
+      "enabled": false,
+      "reason": "alias test; enable when you want to send a second transfer",
+      "saveAs": "transactionAliasTransfer",
+      "to": "$config.common.recipient",
+      "valueEth": "0.00000001",
+      "jsonData": {
+        "type": "transaction",
+        "asset_type": "$config.common.assetType",
+        "amount": "THIS_FIELD_WILL_BE_STRIPPED",
+        "is_find_utxo": false,
+        "sponsor_gas": false,
+        "encoded_info": "fun_eth transaction alias transfer"
+      }
+    },
+    {
+      "name": "stake: create stake transaction",
+      "enabled": false,
+      "reason": "enable only when the sender has enough spendable OHI and should really stake",
+      "saveAs": "stake",
+      "to": "$config.common.recipient",
+      "valueWei": "0",
+      "jsonData": {
+        "type": "stake",
+        "asset_type": "$config.common.assetType",
+        "amount": "1000000",
+        "reward_rank": "10",
+        "is_find_utxo": false,
+        "sponsor_gas": false,
+        "encoded_info": "fun_eth stake"
+      }
+    },
+    {
+      "name": "unstake: withdraw stake by stake_utxo_hash",
+      "enabled": false,
+      "reason": "replace common.stakeUtxoHash with a real stake UTXO before enabling",
+      "saveAs": "unstake",
+      "to": "$config.common.recipient",
+      "valueWei": "0",
+      "jsonData": {
+        "type": "unstake",
+        "asset_type": "$config.common.assetType",
+        "stake_utxo_hash": "$config.common.stakeUtxoHash",
+        "is_find_utxo": false,
+        "sponsor_gas": false,
+        "encoded_info": "fun_eth unstake"
+      }
+    },
+    {
+      "name": "delegating: delegate to raw tx to address",
+      "enabled": false,
+      "reason": "enable only when validator address and amount are correct",
+      "saveAs": "delegating",
+      "to": "$config.common.validator",
+      "valueWei": "0",
+      "jsonData": {
+        "type": "delegating",
+        "asset_type": "$config.common.assetType",
+        "amount": "1000000",
+        "delegate_type": "0",
+        "is_find_utxo": false,
+        "sponsor_gas": false,
+        "encoded_info": "fun_eth delegating"
+      }
+    },
+    {
+      "name": "delegate alias: delegate to raw tx to address",
+      "enabled": false,
+      "reason": "alias test; enable only when validator address and amount are correct",
+      "saveAs": "delegateAlias",
+      "to": "$config.common.validator",
+      "valueWei": "0",
+      "jsonData": {
+        "type": "delegate",
+        "asset_type": "$config.common.assetType",
+        "amount": "1000000",
+        "delegate_type": "1",
+        "is_find_utxo": false,
+        "sponsor_gas": false,
+        "encoded_info": "fun_eth delegate alias"
+      }
+    },
+    {
+      "name": "undelegating: withdraw delegation by utxo_hash",
+      "enabled": false,
+      "reason": "replace common.delegatingUtxoHash with a real delegation UTXO before enabling",
+      "saveAs": "undelegating",
+      "to": "$config.common.validator",
+      "valueWei": "0",
+      "jsonData": {
+        "type": "undelegating",
+        "asset_type": "$config.common.assetType",
+        "utxo_hash": "$config.common.delegatingUtxoHash",
+        "is_find_utxo": false,
+        "sponsor_gas": false,
+        "encoded_info": "fun_eth undelegating"
+      }
+    },
+    {
+      "name": "undelegate alias: withdraw delegation by utxo_hash",
+      "enabled": false,
+      "reason": "alias test; replace common.delegatingUtxoHash before enabling",
+      "saveAs": "undelegateAlias",
+      "to": "$config.common.validator",
+      "valueWei": "0",
+      "jsonData": {
+        "type": "undelegate",
+        "asset_type": "$config.common.assetType",
+        "utxo_hash": "$config.common.delegatingUtxoHash",
+        "is_find_utxo": false,
+        "sponsor_gas": false,
+        "encoded_info": "fun_eth undelegate alias"
+      }
+    },
+    {
+      "name": "bonus: claim reward",
+      "enabled": false,
+      "reason": "enable only when sender is eligible for reward",
+      "saveAs": "bonus",
+      "to": "$config.common.recipient",
+      "valueWei": "0",
+      "jsonData": {
+        "type": "bonus",
+        "asset_type": "$config.common.assetType",
+        "first_choose": false,
+        "is_find_utxo": false,
+        "sponsor_gas": false,
+        "encoded_info": "fun_eth bonus"
+      }
+    },
+    {
+      "name": "lock: lock voting amount",
+      "enabled": false,
+      "reason": "enable only when sender should lock this amount",
+      "saveAs": "lock",
+      "to": "$config.common.recipient",
+      "valueWei": "0",
+      "jsonData": {
+        "type": "lock",
+        "lock_amount": "1000000",
+        "lock_type": "0",
+        "is_find_utxo": false,
+        "sponsor_gas": false,
+        "encoded_info": "fun_eth lock"
+      }
+    },
+    {
+      "name": "unlock: unlock by utxo_hash",
+      "enabled": false,
+      "reason": "replace common.lockUtxoHash with a real lock UTXO before enabling",
+      "saveAs": "unlock",
+      "to": "$config.common.recipient",
+      "valueWei": "0",
+      "jsonData": {
+        "type": "unlock",
+        "utxo_hash": "$config.common.lockUtxoHash",
+        "is_find_utxo": false,
+        "sponsor_gas": false,
+        "encoded_info": "fun_eth unlock"
+      }
+    },
+    {
+      "name": "vote: vote by vote_hash",
+      "enabled": false,
+      "reason": "replace common.voteHash with a real proposal hash before enabling",
+      "saveAs": "vote",
+      "to": "$config.common.recipient",
+      "valueWei": "0",
+      "jsonData": {
+        "type": "vote",
+        "vote_hash": "$config.common.voteHash",
+        "vote": "1",
+        "is_find_utxo": false,
+        "sponsor_gas": false,
+        "encoded_info": "fun_eth vote"
+      }
+    },
+    {
+      "name": "proposal: proposal vote wrapper",
+      "enabled": false,
+      "reason": "replace common.voteHash with a real proposal hash before enabling",
+      "saveAs": "proposal",
+      "to": "$config.common.recipient",
+      "valueWei": "0",
+      "jsonData": {
+        "type": "proposal",
+        "vote_hash": "$config.common.voteHash",
+        "is_find_utxo": false,
+        "sponsor_gas": false,
+        "encoded_info": "fun_eth proposal"
+      }
+    },
+    {
+      "name": "revoke_proposal: revoke proposal wrapper",
+      "enabled": false,
+      "reason": "replace common.voteHash with a real proposal hash before enabling",
+      "saveAs": "revokeProposal",
+      "to": "$config.common.recipient",
+      "valueWei": "0",
+      "jsonData": {
+        "type": "revoke_proposal",
+        "vote_hash": "$config.common.voteHash",
+        "is_find_utxo": false,
+        "sponsor_gas": false,
+        "encoded_info": "fun_eth revoke proposal"
+      }
+    },
+    {
+      "name": "revokeProposal alias: revoke proposal wrapper",
+      "enabled": false,
+      "reason": "alias test; replace common.voteHash before enabling",
+      "saveAs": "revokeProposalAlias",
+      "to": "$config.common.recipient",
+      "valueWei": "0",
+      "jsonData": {
+        "type": "revokeProposal",
+        "vote_hash": "$config.common.voteHash",
+        "is_find_utxo": false,
+        "sponsor_gas": false,
+        "encoded_info": "fun_eth revokeProposal alias"
+      }
+    },
+    {
+      "name": "fund: claim treasury",
+      "enabled": false,
+      "reason": "enable only when sender should claim treasury reward",
+      "saveAs": "fund",
+      "to": "$config.common.recipient",
+      "valueWei": "0",
+      "jsonData": {
+        "type": "fund",
+        "is_find_utxo": false,
+        "encoded_info": "fun_eth fund"
+      }
+    },
+    {
+      "name": "treasury alias: claim treasury",
+      "enabled": false,
+      "reason": "alias test; enable only when sender should claim treasury reward",
+      "saveAs": "treasuryAlias",
+      "to": "$config.common.recipient",
+      "valueWei": "0",
+      "jsonData": {
+        "type": "treasury",
+        "is_find_utxo": false,
+        "encoded_info": "fun_eth treasury alias"
+      }
+    }
+  ]
+}

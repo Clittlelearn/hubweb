@@ -1,0 +1,18 @@
+export type MethodType =
+  | 'tx'
+  | 'transaction'
+  | 'stake'
+  | 'unstake'
+  | 'delegate'
+  | 'delegating'
+  | 'undelegate'
+  | 'undelegating'
+  | 'bonus'
+  | 'lock'
+  | 'unlock'
+  | 'vote'
+  | 'proposal'
+  | 'revoke_proposal'
+  | 'revokeProposal'
+  | 'fund'
+  | 'treasury';

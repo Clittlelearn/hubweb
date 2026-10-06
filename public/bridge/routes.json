@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "environment": "local-test",
+  "routes": [
+    {
+      "id": "wallet-1b6063e8-fb20-4638-aa65-ba164ac1170d",
+      "name": "lonp · 2026/9/29 15:39:07",
+      "symbol": "LOP",
+      "decimals": 8,
+      "security": "Trusted local relayer",
+      "endpoints": [
+        {
+          "key": "hivex",
+          "name": "HiveX Devnet",
+          "chainId": 12315,
+          "domain": 12315,
+          "rpcUrl": "http://192.168.1.162:13134",
+          "nativeSymbol": "OHI",
+          "nativeDecimals": 18,
+          "type": "synthetic",
+          "scale": "1",
+          "explorerUrl": "",
+          "deploymentBlock": 903,
+          "mailbox": "0x9cab56d4f7b25fcfc77cb753c2646c5d8a9ca0ff",
+          "router": "0x441a3c4f9f8497c5ebf517a187e42d6dabab4899",
+          "token": "0x441a3c4f9f8497c5ebf517a187e42d6dabab4899",
+          "ism": "0xc44ea593a1850a7faf7a87a0a5ccf9991b076b8c",
+          "hook": "0xe6e7d6c74df97a67872318c360c55da01af11ed7"
+        },
+        {
+          "key": "local-bsc",
+          "name": "Local BSC",
+          "chainId": 31338,
+          "domain": 31338,
+          "rpcUrl": "http://127.0.0.1:8546",
+          "nativeSymbol": "BNB",
+          "nativeDecimals": 18,
+          "type": "collateral",
+          "scale": "1",
+          "explorerUrl": "",
+          "deploymentBlock": 71,
+          "mailbox": "0x9cab56d4f7b25fcfc77cb753c2646c5d8a9ca0ff",
+          "token": "0x441a3c4f9f8497c5ebf517a187e42d6dabab4899",
+          "router": "0xcd2322107878f4b33f6aac3fdc3b6e3d130e6daf",
+          "ism": "0xc44ea593a1850a7faf7a87a0a5ccf9991b076b8c",
+          "hook": "0xe6e7d6c74df97a67872318c360c55da01af11ed7"
+        }
+      ]
+    },
+    {
+      "id": "hbr-hivex-local-bsc",
+      "symbol": "HBR",
+      "decimals": 8,
+      "name": "HiveX / Local BSC",
+      "security": "Trusted local relayer",
+      "endpoints": [
+        {
+          "key": "hivex",
+          "name": "HiveX Devnet",
+          "chainId": 12315,
+          "domain": 12315,
+          "rpcUrl": "http://192.168.1.162:13134",
+          "nativeSymbol": "OHI",
+          "nativeDecimals": 18,
+          "type": "synthetic",
+          "scale": "1",
+          "explorerUrl": "",
+          "deploymentBlock": 797,
+          "mailbox": "0x8051cdd1caae9ccc63129eb68f428b41fd70b110",
+          "ism": "0xb5037ba8213ae2e9a4fd22e3d89a62196d8cb175",
+          "hook": "0x900ef8d0ea3c0f40cd91220b0f066e6a19e898a6",
+          "router": "0x5af1bf521e0576502897a9a7e8ee11fcd5157082",
+          "token": "0x5af1bf521e0576502897a9a7e8ee11fcd5157082"
+        },
+        {
+          "key": "local-bsc",
+          "name": "Local BSC",
+          "chainId": 31338,
+          "domain": 31338,
+          "rpcUrl": "http://127.0.0.1:8546",
+          "nativeSymbol": "BNB",
+          "nativeDecimals": 18,
+          "type": "collateral",
+          "scale": "1",
+          "explorerUrl": "",
+          "deploymentBlock": 0,
+          "mailbox": "0x7d9e9fd53a5e1c991e61c3051f2c06b276a5d365",
+          "ism": "0x58f91403c6d1a6cfcd0a2f791ed9855892adb3e9",
+          "hook": "0x750cdc62764c2cc1521cab214f35cf65b42b06ea",
+          "token": "0x0b9533f0f1bdcdfccc51e06a7d03c804c12f06e2",
+          "router": "0xd3c76e72437a553f77c790d315f96c00d33ab7a8"
+        }
+      ]
+    },
+    {
+      "id": "hbr-local-evm-bsc",
+      "symbol": "HBR",
+      "decimals": 8,
+      "name": "Local EVM / Local BSC",
+      "security": "Trusted local relayer",
+      "endpoints": [
+        {
+          "key": "local-evm",
+          "name": "Local EVM",
+          "chainId": 31337,
+          "domain": 31337,
+          "rpcUrl": "http://127.0.0.1:8545",
+          "nativeSymbol": "ETH",
+          "nativeDecimals": 18,
+          "type": "synthetic",
+          "scale": "1",
+          "explorerUrl": "",
+          "deploymentBlock": 0,
+          "mailbox": "0x7d9e9fd53a5e1c991e61c3051f2c06b276a5d365",
+          "ism": "0x58f91403c6d1a6cfcd0a2f791ed9855892adb3e9",
+          "hook": "0x750cdc62764c2cc1521cab214f35cf65b42b06ea",
+          "router": "0x0b9533f0f1bdcdfccc51e06a7d03c804c12f06e2",
+          "token": "0x0b9533f0f1bdcdfccc51e06a7d03c804c12f06e2"
+        },
+        {
+          "key": "local-bsc",
+          "name": "Local BSC",
+          "chainId": 31338,
+          "domain": 31338,
+          "rpcUrl": "http://127.0.0.1:8546",
+          "nativeSymbol": "BNB",
+          "nativeDecimals": 18,
+          "type": "collateral",
+          "scale": "1",
+          "explorerUrl": "",
+          "deploymentBlock": 9,
+          "mailbox": "0xdc03d92974ce58976f68ece51b919bd67ed60b39",
+          "ism": "0x669894e18c43175f05ea2f55682197bab48bcd21",
+          "hook": "0x20ee1fd953efd9a1ced34bf9698b8f9e225bfdea",
+          "token": "0xdd5b7dbcd40a248b71324d9b36d42edc00631ed0",
+          "router": "0x3d25a74cf65d937942b5cdb10398d55b7b51d4c8"
+        }
+      ]
+    }
+  ]
+}

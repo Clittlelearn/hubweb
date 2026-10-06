@@ -1,0 +1,968 @@
+{
+  "SendMessage": {
+    "params": {
+      "sleep_time": "",
+      "tx": ""
+    },
+    "result": {
+      "percent": "",
+      "receivedsize": "",
+      "sendsize": "",
+      "tx": "",
+      "tx_hash": ""
+    },
+    "error": {}
+  },
+  "SendContractMessage": {
+    "params": {
+      "contract_msg": "",
+      "sleeptime": "",
+      "tx": ""
+    },
+    "result": {
+      "percent": "",
+      "receivedsize": "",
+      "sendsize": "",
+      "tx": "",
+      "tx_hash": ""
+    },
+    "error": {}
+  },
+  "CreateTransaction": {
+    "params": {
+      "encoded_info": "",
+      "gas_asset": {
+        "addr": "",
+        "asset_type": ""
+      },
+      "is_find_utxo": false,
+      "sponsor_gas": true,
+      "tx_table": [
+        {
+          "asset_type": "",
+          "from_addr": "",
+          "to_addrs": [
+            {
+              "addr": "0x000000",
+              "amount": "0"
+            }
+          ]
+        }
+      ]
+    },
+    "result": {
+      "tx": ""
+    },
+    "error": {
+      "-1": "db get top failed",
+      "-2": "Check parameters failed",
+      "-3": "to addr is empty",
+      "-4": "To address is not  address!",
+      "-5": "from address is same with toaddr",
+      "-6": "Value is zero!",
+      "-7": "The information entered exceeds the specified length",
+      "-8": "FindUtxo failed!",
+      "-9": "Utxo is empty!",
+      "-10": "Tx owner is empty!",
+      "-11": "Generate Gas failed!",
+      "-12": "The total cost  is  total less than the cost",
+      "-13": "Check parameters failed! The error code is ret",
+      "-14": "FindUtxo failed! The error code is",
+      "-15": "Utxo is empty",
+      "-16": "Tx owner is empty",
+      "-17": "Find packager failed",
+      "-18": "utxo is using!"
+    }
+  },
+  "CreateDeployContractTransaction": {
+    "params": {
+      "addr": "",
+      "contract": "",
+      "contract_type": 0,
+      "data": "",
+      "encoded_info": "",
+      "gas_asset": {
+        "addr": "",
+        "asset_type": ""
+      },
+      "is_find_utxo": false,
+      "pubstr": "",
+      "sleeptime": ""
+    },
+    "result": {
+      "contract_msg": "",
+      "tx": ""
+    },
+    "error": {
+      "-1": "Input addr error",
+      "-2": "Created a deal height failed",
+      "-3": "The information entered exceeds the specified length",
+      "-4": "Get contractaddress failed",
+      "-5": "nContractType Invalid",
+      "-6": "Get CanBeRevoke AssetType fail",
+      "-300": "Call contract error",
+      "-2004": "The main network currency balance is insufficient",
+      "-13114": "The main network currency balance is insufficient",
+      "-13116": "Reward is less than gas",
+      "-13117": "The main network currency balance is insufficient"
+    }
+  },
+  "CreateCallContractTransaction": {
+    "params": {
+      "addr": "",
+      "args": "",
+      "contract_address": "",
+      "deployer": "",
+      "deployutxo": "",
+      "encoded_info": "",
+      "gas_asset": {
+        "addr": "",
+        "asset_type": ""
+      },
+      "is_find_utxo": false,
+      "istochain": false,
+      "money": "",
+      "pubstr": "",
+      "sleeptime": "",
+      "sponsor_gas": false
+    },
+    "result": {
+      "contract_msg": "",
+      "tx": ""
+    },
+    "error": {
+      "-1": "from addr error",
+      "-2": "to addr error",
+      "-4": "money regex match error",
+      "-5": "db get top failed",
+      "-6": "The information entered exceeds the specified length",
+      "-7": "get contract transaction failed",
+      "-8": "contract transaction parse failed",
+      "-9": "Get CanBeRevoke AssetType fail",
+      "-10": "VmType is not EVM",
+      "-300": "Contract execution failed",
+      "-2004": "The main network currency balance is insufficient",
+      "-13114": "The main network currency balance is insufficient",
+      "-13116": "Reward is less than gas",
+      "-13117": "The main network currency balance is insufficient"
+    }
+  },
+  "CreateStakingTransaction": {
+    "params": {
+      "addr": "",
+      "amount": "",
+      "asset_type": "",
+      "encoded_info": "",
+      "gas_asset": {
+        "addr": "",
+        "asset_type": ""
+      },
+      "is_find_utxo": false,
+      "reward_rank_string": "",
+      "sponsor_gas": false
+    },
+    "result": {
+      "tx": ""
+    },
+    "error": {
+      "-1": "Input pumping percentage error",
+      "-2": "Failed to get the current highest block height",
+      "-3": "Check parameters failed",
+      "-4": "From address invlaid",
+      "-5": "Stake amount is zero",
+      "-6": "The pledge amount must be greater than Minimum pledge value",
+      "-7": "Unknown stake type",
+      "-8": "There has been a pledge transaction before!",
+      "-9": "The information entered exceeds the specified length",
+      "-10": "FindUtxo failed",
+      "-11": "Utxo is empty",
+      "-12": "Tx owner is invalid",
+      "-13": "The commission ratio is not in the range",
+      "-14": "The gas charge cannot be 0",
+      "-15": "The total amount is less than gas",
+      "-16": "Check parameters failed",
+      "-17": "FindUtxo failed",
+      "-18": "Utxo is empty",
+      "-19": "Tx owner is empty",
+      "-20": "Failed to get the packager",
+      "-21": "Get Can BeRevoke AssetType fail"
+    }
+  },
+  "CreateUnstakingTransaction": {
+    "params": {
+      "addr": "",
+      "assert_type": "",
+      "encoded_info": "",
+      "gas_asset": {
+        "addr": "",
+        "asset_type": ""
+      },
+      "is_find_utxo": false,
+      "sponsor_gas": false,
+      "stake_utxo_hash": ""
+    },
+    "result": {
+      "tx": ""
+    },
+    "error": {
+      "-1": "Failed to get the current highest block height",
+      "-2": "Check parameters failed",
+      "-3": "FromAddr is not normal addr.",
+      "-4": "FindUtxo failed",
+      "-5": "Utxo is empty",
+      "-6": "Tx owner is empty",
+      "-7": "The information entered exceeds the specified length",
+      "-8": "The gas charge cannot be 0",
+      "-9": "The total amount is less than expend",
+      "-10": "Check parameters failed",
+      "-11": "FindUtxo failed",
+      "-12": "Utxo is empty",
+      "-13": "Tx owner is empty",
+      "-14": "GetBlockPackager error",
+      "-15": "Get Can BeRevoke AssetType fail",
+      "-101": "Get all stake address failed",
+      "-102": "The account number has not staked assets",
+      "-103": "Get stake utxo from address failed",
+      "-104": "The utxo to be de staked is not in the staked utxo",
+      "-105": "The staked utxo is not more than 30 days",
+      "-106": "Stake tx not found",
+      "-107": "Failed to parse transaction body",
+      "-108": "Stake value is zero"
+    }
+  },
+  "CreateDelegatingTransaction": {
+    "params": {
+      "asset_type": "",
+      "delegate_type": 0,
+      "delegatinged_amount": "",
+      "encoded_info": "",
+      "from_addr": "",
+      "gas_asset": {
+        "addr": "",
+        "asset_type": ""
+      },
+      "is_find_utxo": false,
+      "sponsor_gas": false,
+      "to_addr": ""
+    },
+    "result": {
+      "tx": ""
+    },
+    "error": {
+      "-1": "Failed to get the current highest block height",
+      "-2": "Check parameters failed",
+      "-3": "The initiator address is incorrect",
+      "-4": "The receiver address is incorrect",
+      "-5": "delegating amount less 35",
+      "-6": "Unknown delegating type",
+      "-7": "The information entered exceeds the specified length",
+      "-8": "FindUtxo failed",
+      "-9": "Utxo is empty",
+      "-10": "Tx owner is empty",
+      "-11": "gas cannot be 0",
+      "-12": "The total amount is less than expend",
+      "-13": "Check parameters failed",
+      "-14": "FindUtxo failed",
+      "-15": "Utxo is empty",
+      "-16": "Tx owner is empty",
+      "-17": "GetBlockPackager error",
+      "-101": "The delegator have already delegated in a node",
+      "-102": "The delegating amount is less than 35",
+      "-103": "The account to be delegated has not spent 500 to access the Internet",
+      "-104": "Get delegated addrs by node failed",
+      "-105": "The account number to be delegated have been delegated by 9999 people",
+      "-106": "GetBonusAddrDelegationAddrUtxoByBonusAddr failed",
+      "-107": "GetTransactionByHash failed",
+      "-108": "Failed to parse transaction body",
+      "-109": "The total amount delegated in a single node will be more than 3500000",
+      "-110": "The asset type is OHI"
+    }
+  },
+  "CreateUndelegatingTransaction": {
+    "params": {
+      "asset_type": "",
+      "encoded_info": "",
+      "from_addr": "",
+      "gas_asset": {
+        "addr": "",
+        "asset_type": ""
+      },
+      "is_find_utxo": false,
+      "sponsor_gas": false,
+      "to_addr": "",
+      "utxo_hash": ""
+    },
+    "result": {
+      "tx": ""
+    },
+    "error": {
+      "-1": "Failed to get the current highest block height",
+      "-2": "Check parameters failed",
+      "-3": "FromAddr is not normal addr.",
+      "-4": "To address is not normal addr.",
+      "-5": "The information entered exceeds the specified length",
+      "-6": "FindUtxo failed",
+      "-7": "Utxo is empty",
+      "-8": "Tx owner is empty",
+      "-9": "gas cannot be 0",
+      "-10": "The total amount is less than expend",
+      "-11": "Check parameters failed",
+      "-12": "FindUtxo failed",
+      "-13": "Utxo is empty",
+      "-14": "Tx owner is empty",
+      "-15": "GetBlockPackager error",
+      "-101": "GetBonusAddrByInvestAddr failed",
+      "-102": "The account has not invested assets to node",
+      "-103": "GetBonusAddrInvestAddrUtxoByBonusAddr failed",
+      "-104": "The utxo to divest is not in the utxos that have been invested",
+      "-105": "The invested utxo is not more than 1 day",
+      "-106": "Invest tx not found",
+      "-107": "Failed to parse transaction body",
+      "-108": "The node to be divested is not invested",
+      "-109": "The invested value is zero",
+      "-110": "The asset type is vote"
+    }
+  },
+  "CreateBonusTransaction": {
+    "params": {
+      "addr": "",
+      "asset_type": "",
+      "encoded_info": "",
+      "first_choose": false,
+      "gas_asset": {
+        "addr": "",
+        "asset_type": ""
+      },
+      "is_find_utxo": false,
+      "sponsor_gas": false
+    },
+    "result": {
+      "tx": ""
+    },
+    "error": {
+      "-1": "Failed to get the current highest block height",
+      "-2": "Description Failed to obtain the balance of type X from the database based on the current type",
+      "-3": "Description Failed to obtain the jump asset type",
+      "-4": "Check parameters failed",
+      "-5": "The bouns address is incorrect",
+      "-6": "The information entered exceeds the specified length",
+      "-7": "Failed to obtain the amount claimed by the investor",
+      "-8": "FindUtxo failed",
+      "-9": "Utxo is zero",
+      "-10": "Tx owner is empty",
+      "-11": "GetCommissionPercentage error",
+      "-12": "The gas charge cannot be 0",
+      "-13": "The total cost = {} is less than the cost",
+      "-14": "The claim amount is 0",
+      "-15": "Extra Gas Trade Check parameters failed!",
+      "-16": "Extra Gas Trade FindUtxo failed!",
+      "-17": "Extra Gas Trade Utxo is empty",
+      "-18": "Tx owner is empty!",
+      "-19": "GetBlockPackager fail",
+      "-101": "The bouns time is not within the prescribed limits",
+      "-102": "Incorrect time",
+      "-103": "GetBonusUtxoByPeriod fail",
+      "-104": "GetTransactionByHash fail",
+      "-105": "Failed to parse transaction body",
+      "-106": "GetBonusUtxoByPeriod fail",
+      "-107": "VerifyBonusAddr fail",
+      "-108": "The bouns address is not pledged"
+    }
+  },
+  "CreateLockTransaction": {
+    "params": {
+      "encoded_info": "",
+      "gas_asset": {
+        "addr": "",
+        "asset_type": ""
+      },
+      "is_find_utxo": false,
+      "lock_addr": "",
+      "lock_amount": "",
+      "lock_type": 0,
+      "sponsor_gas": false
+    },
+    "result": {
+      "tx": ""
+    },
+    "error": {
+      "-1": "db get top failed!",
+      "-2": "Check parameters failed!",
+      "-3": "From address invlaid",
+      "-4": "The pledge amount error",
+      "-5": "Unknown lock type!",
+      "-6": "The information entered exceeds the specified length",
+      "-7": "There has been a lock transaction before !",
+      "-8": "FindUtxo failed",
+      "-9": "Utxo is empty",
+      "-10": "Tx owner is invalid!",
+      "-11": "gas = 0 !",
+      "-12": "The total cost is less than the cost",
+      "-13": "Check parameters failed",
+      "-14": "FindUtxo failed",
+      "-15": "Gas utxo is empty",
+      "-16": "Tx owner is empty!",
+      "-17": "Failed to get the packager",
+      "-18": "LockAmount format error",
+      "-76": "There has been a lock transaction before"
+    }
+  },
+  "CreateUnLockTransaction": {
+    "params": {
+      "encoded_info": "",
+      "gas": {
+        "addr": "",
+        "asset_type": ""
+      },
+      "is_find_utxo": false,
+      "lock_addr": "",
+      "sponsor_gas": false,
+      "utxo_hash": ""
+    },
+    "result": {
+      "tx": ""
+    },
+    "error": {
+      "-1": "db get top failed!",
+      "-2": "The information entered exceeds the specified length",
+      "-3": "Check parameters failed",
+      "-4": "FromAddr is not normal  addr",
+      "-5": "FromAddr is not qualified to unlock",
+      "-6": "FindUtxo failed",
+      "-7": "Utxo is empty",
+      "-8": "Tx owner is empty",
+      "-9": "gas = 0",
+      "-10": "The total cost  is less than the cost",
+      "-11": "Check parameters failed",
+      "-12": "FindUtxo failed",
+      "-13": "Utxo is empty",
+      "-14": "Tx owner is empty",
+      "-15": "GetBlockPackager error"
+    }
+  },
+  "CreateVoteTransaction": {
+    "params": {
+      "addr": "",
+      "encoded_info": "",
+      "gas_asset": {
+        "addr": "",
+        "asset_type": ""
+      },
+      "is_find_utxo": false,
+      "sponsor_gas": false,
+      "vote_hash": "",
+      "vote_type": 0
+    },
+    "result": {
+      "tx": ""
+    },
+    "error": {
+      "-1": "db get top failed!",
+      "-2": "The information entered exceeds the specified length",
+      "-3": "FromAddr is not normal addr",
+      "-4": "Check parameters failed",
+      "-5": "FromAddr is not qualified to unlock",
+      "-6": "Check vote tx info error",
+      "-7": "FindUtxo failed!",
+      "-8": "Utxo is empty",
+      "-9": "Tx owner is empty",
+      "-10": "gas = 0",
+      "-11": "The total cost is less than the cost",
+      "-12": "Find block packager error"
+    }
+  },
+  "CreateFundTransaction": {
+    "params": {
+      "addr": "",
+      "encoded_info": "",
+      "is_find_utxo": false
+    },
+    "result": {
+      "tx": ""
+    },
+    "error": {
+      "-1 ": "db get top failed!",
+      "-2": "The information entered exceeds the specified length",
+      "-3": "Default is not normal  addr.",
+      "-4": "Get available asset fail!",
+      "-5": "GetGasamountbyTimeType error!",
+      "-6": "Nodes are not eligible to claim fund",
+      "-7": "Sign Utxo fail!",
+      "-8": "Utxo is empty",
+      "-9": "Tx owner is empty",
+      "-10": "gas = 0",
+      "-11": "The total cost is less than the cost",
+      "-12": "Find block packager error",
+      "-13": "GetIdentityNodes fail!!! ret",
+      "-99": "Verify bonus address fail"
+    }
+  },
+  "GetAllAssetType": {
+    "params": null,
+    "result": {
+      "asset_type": []
+    },
+    "error": {
+      "-1": "Get asset type error"
+    }
+  },
+  "GetAssetTypeInfo": {
+    "params": {
+      "asset_type": ""
+    },
+    "result": {
+      "proposalInfo": "",
+      "revokeProposalInfo": []
+    },
+    "error": {
+      "-1": "Get asset info error",
+      "-2": "Get revoke tx hash error",
+      "-3": "Get revoke proposal info error"
+    }
+  },
+  "GetVoteTxHash": {
+    "params": {
+      "asset_type": ""
+    },
+    "result": {
+      "tx_hashs": []
+    },
+    "error": {
+      "-1": "Get vote tx hash error"
+    }
+  },
+  "GetVoteAddrs": {
+    "params": {
+      "hash": "0x416ba3e59614072c3bbdfb4f194fe71d248a7d82b1727f2d4ca51f8b4aba1528"
+    },
+    "result": {
+      "vagainstAddrs": [
+        {
+          "addr": "",
+          "voteNum": 0
+        }
+      ],
+      "vapproveAddrs": [
+        {
+          "addr": "",
+          "voteNum": 0
+        }
+      ]
+    },
+    "error": {
+      "-1": "Get approve addrs error",
+      "-2": "Get against addrs error"
+    }
+  },
+  "GetLockUtxo": {
+    "params": {
+      "fromAddr": "0xffFd42e045737b11570B7981c2648ea532a10B23"
+    },
+    "result": {
+      "utxos": {
+        "hash": "",
+        "value": 0
+      }
+    },
+    "error": {
+      "-1": "fromaddr not lock!",
+      "-2": "get transaction error",
+      "-3": "parse transaction error"
+    }
+  },
+  "GetUtxoDeployerByConAddr": {
+    "params": {
+      "contractAddr": ""
+    },
+    "result": {
+      "code": 0,
+      "message": "success",
+      "deployer": "",
+      "utxo": ""
+    },
+    "error": {}
+  },
+  "IsContract": {
+    "params": {
+      "addr": ""
+    },
+    "result": {
+      "isContract": false
+    },
+    "error": {}
+  },
+  "GetTransactionByHash": {
+    "params": {
+      "hash": "bfc73f1c66c7c552cbdb3d02cc1c434b1efaf35fd3916350b5d8a38f92c96fc7"
+    },
+    "result": {
+      "tx": null
+    },
+    "error": {
+      "-1": "Transaction hash error",
+      "-2": "Failed to parse transaction body"
+    }
+  },
+  "GetBlockByTransactionHash": {
+    "params": {
+      "hash": "0x4505234713387c489827cc38a4209221bfe01fe65d688830b2f4f1871951b6e4"
+    },
+    "result": {
+      "blockInfo": null
+    },
+    "error": {
+      "-1": "Tx hash error",
+      "-2": "Block hash error",
+      "-3": "Block invert error"
+    }
+  },
+  "GetBlockByHash": {
+    "params": {
+      "hash": "0xb51f9199b387ce0b45c847c85f86fa3db3eb5e15b50b4a267dd9f582cd4bc256"
+    },
+    "result": {
+      "blockInfo": null
+    },
+    "error": {
+      "-1": "Block hash error"
+    }
+  },
+  "GetBlockByHeight": {
+    "params": {
+      "begin": 0,
+      "end": 0
+    },
+    "result": {
+      "blocks": []
+    },
+    "error": {
+      "-1": "Block height error, beginHeight < endHeight",
+      "-2": "The height of the request does not exceed 100",
+      "-3": "Database abnormal, Get block hashes by block height error",
+      "-4": "Database abnormal, Get block by block hash error",
+      "-5": "Database abnormal, Get block top error"
+    }
+  },
+  "GetAllStakeNodeList": {
+    "params": null,
+    "result": {
+      "list": [
+        {
+          "addr": "",
+          "height": "",
+          "identity": "",
+          "ip": "",
+          "name": "",
+          "version": ""
+        }
+      ]
+    },
+    "error": {
+      "-1": "PeerList is empty"
+    }
+  },
+  "GetBonusInfo": {
+    "params": null,
+    "result": {
+      "info": {
+        "addr_count": [
+          {
+            "address": "",
+            "count": 0
+          }
+        ],
+        "time": ""
+      }
+    },
+    "error": {
+      "-1": "DB get sign addr failed!"
+    }
+  },
+  "GetStakingUtxo": {
+    "params": {
+      "asset_type": "",
+      "fromAddr": ""
+    },
+    "result": {
+      "utxos": null
+    },
+    "error": {
+      "-1": "From address not stake!"
+    }
+  },
+  "GetDelegatingUtxo": {
+    "params": {
+      "asset_type": "",
+      "fromAddr": "",
+      "toAddr": ""
+    },
+    "result": {
+      "utxos": [
+        {
+          "utxo": ""
+        }
+      ]
+    },
+    "error": {}
+  },
+  "GetBalance": {
+    "params": {
+      "addr": "0xffFd42e045737b11570B7981c2648ea532a10B23",
+      "asset_type": "X"
+    },
+    "result": {
+      "addr": "",
+      "asset_type": "",
+      "balance": ""
+    },
+    "error": {
+      "-1": "Address is invalid",
+      "-2": "Search balance failed"
+    }
+  },
+  "GetBlockHeight": {
+    "params": null,
+    "result": {
+      "height": ""
+    },
+    "error": {
+      "-1": "GetBlockTop error"
+    }
+  },
+  "GetVersion": {
+    "params": null,
+    "result": {
+      "clientVersion": "",
+      "configVersion": "",
+      "dbVersion": "",
+      "netVersion": ""
+    },
+    "error": {}
+  },
+  "GetBlockTransactionCountByHash": {
+    "params": {
+      "hash": "0x12e52383dc0fedc40bdab13fc1afd851d7123facf030f90163c03f87411650f1"
+    },
+    "result": {
+      "code": 0,
+      "message": "success",
+      "txCount": "1"
+    },
+    "error": {
+      "-1": "GetBlockByBlockHash error",
+      "-2": "Block parse string fail"
+    }
+  },
+  "GetAccounts": {
+    "params": null,
+    "result": {
+      "acccountlist": []
+    },
+    "error": {}
+  },
+  "GetChainId": {
+    "params": null,
+    "result": {
+      "chainId": ""
+    },
+    "error": {}
+  },
+  "GetNodeList": {
+    "params": null,
+    "result": {
+      "nodeList": [
+        {
+          "addr": "",
+          "fd": "",
+          "height": "",
+          "ip": "",
+          "kind": "",
+          "logo": "",
+          "name": "",
+          "port": "",
+          "pulse": "",
+          "version": ""
+        }
+      ]
+    },
+    "error": {}
+  },
+  "GetYieldInfo": {
+    "params": null,
+    "result": {
+      "annualizedRate": ""
+    },
+    "error": {
+      "-1": "The earning Rate is greater than the threshold"
+    }
+  },
+  "GetDelegatingAddrsByBonusAddr": {
+    "params": {
+      "addr": ""
+    },
+    "result": {
+      "info": [
+        {
+          "asset_type": "",
+          "value": "0"
+        }
+      ]
+    },
+    "error": {}
+  },
+  "GetDelegatingAddrsBybonusAddr": {
+    "params": {
+      "addr": "0xadc2A709EC1413eCcEB4d115E50BD9ebBA35E3Ce"
+    },
+    "result": {
+      "code": 0,
+      "info": {
+        "746CADE61c69a2af24CEf4928a523E616c84b36E": [
+          [
+            "5e7c785de771a3130587872bc4381b15c1b2d38a6c101796c67535af5c5471f0",
+            "500000000000"
+          ],
+          [
+            "0x416ba3e59614072c3bbdfb4f194fe71d248a7d82b1727f2d4ca51f8b4aba1528",
+            "500000000000"
+          ]
+        ],
+        "AbA56968eA57C630B22A21ff791458cF253cA6aE": [
+          [
+            "X",
+            "1000000000000"
+          ]
+        ],
+        "Ce3efA4FE6b044FB985736C62ABFDF435CC9AfCF": [
+          [
+            "5e7c785de771a3130587872bc4381b15c1b2d38a6c101796c67535af5c5471f0",
+            "100000000000"
+          ],
+          [
+            "0x416ba3e59614072c3bbdfb4f194fe71d248a7d82b1727f2d4ca51f8b4aba1528",
+            "100000000000"
+          ]
+        ],
+        "D9ECEec8420a0c053b70511f5f150EbD44358F3d": [
+          [
+            "5e7c785de771a3130587872bc4381b15c1b2d38a6c101796c67535af5c5471f0",
+            "200000000000"
+          ],
+          [
+            "0x416ba3e59614072c3bbdfb4f194fe71d248a7d82b1727f2d4ca51f8b4aba1528",
+            "300000000000"
+          ]
+        ]
+      },
+      "message": "success"
+    },
+    "error": {
+      "-1": "Database abnormal, Get invest addrs by node failed!",
+      "-2": "The account number to be invested have been invested by 999 people",
+      "-3": "Database abnormal, Get bonus addr invest utxos by bonusAddr failed",
+      "-4": "Database abnormal, Get transaction by hash failed",
+      "-5": "Failed to parse transaction body"
+    }
+  },
+  "GetAddrType": {
+    "params": {
+      "addr": "0x9D69D2774Ecbf6F36c0d8250892aFAD68EB35919"
+    },
+    "result": {
+      "canReward": true,
+      "isBonus": false,
+      "isDelegated": true,
+      "isLocked": true,
+      "isPackaged": true,
+      "isStaked": true
+    },
+    "error": {}
+  },
+  "GetBonusClaimableAmount": {
+    "params": {
+      "addr": "0x9D69D2774Ecbf6F36c0d8250892aFAD68EB35919"
+    },
+    "result": {
+      "info": {
+        "addr": "b9962aF81C29d2148432eED45a9C28f03a61791c",
+        "as_delegator": [
+          {
+            "bonus_addr": "b9962aF81C29d2148432eED45a9C28f03a61791c",
+            "calc_ret": -5,
+            "claimable": false,
+            "claimable_amount": 0,
+            "commission_amount": 0,
+            "commission_rate": 0.05,
+            "commission_ret": 0,
+            "eligibility_ret": 0,
+            "estimated_amount": 0,
+            "gross_amount": 0
+          }
+        ],
+        "as_operator": {
+          "calc_ret": -5,
+          "claimable": false,
+          "claimable_amount": 0,
+          "commission_rate": 0.0,
+          "commission_ret": -5,
+          "delegator_count": 0,
+          "eligibility_ret": 0,
+          "estimated_operator_commission": 0,
+          "gross_amount": 0
+        },
+        "current_period": 168,
+        "delegator_claimable_amount": 0,
+        "delegator_estimated_amount": 0,
+        "operator_claimable_amount": 0,
+        "operator_estimated_amount": 0,
+        "period": 167,
+        "total_claimable_amount": 0,
+        "total_estimated_amount": 0
+      }
+    },
+    "error": {}
+  },
+  "GetFundClaimableAmount": {
+    "params": {
+      "addr": "0x9D69D2774Ecbf6F36c0d8250892aFAD68EB35919"
+    },
+    "result": {
+      "info": {
+        "addr": "b9962aF81C29d2148432eED45a9C28f03a61791c",
+        "asset_pool": {
+          "OHI": 29280
+        },
+        "asset_ret": 0,
+        "can_package_reward": true,
+        "claimable": true,
+        "claimable_reward": {
+          "OHI": 2440
+        },
+        "current_period": 168,
+        "estimated_reward": {
+          "OHI": 2440
+        },
+        "is_locked_qualified": true,
+        "is_package_qualified": false,
+        "locked_amount": 100000000000,
+        "locked_reward": {
+          "OHI": 2440
+        },
+        "package_count": 2,
+        "package_count_ret": 0,
+        "package_reward": {
+          "OHI": 0
+        },
+        "package_times": 0,
+        "package_times_ret": 3,
+        "period": 167,
+        "qualification_ret": 0,
+        "total_claimable_amount": 2440,
+        "total_estimated_amount": 2440,
+        "total_locked_amount": 600000000000,
+        "total_locked_ret": 0
+      }
+    },
+    "error": {}
+  }
+}

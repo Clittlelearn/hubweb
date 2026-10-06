@@ -1,0 +1,21 @@
+{
+  "name": "openhive-sdk-wallet-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build:sdk": "npm --prefix ../../packages/sdk run build",
+    "dev": "npm run build:sdk && ../../node_modules/.bin/vite --config vite.config.ts --host 0.0.0.0",
+    "build": "npm run build:sdk && ../../node_modules/.bin/tsc --noEmit && ../../node_modules/.bin/vite build --config vite.config.ts",
+    "preview": "../../node_modules/.bin/vite preview --config vite.config.ts --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@openhive/sdk": "file:../../packages/sdk",
+    "@vitejs/plugin-react": "4.7.0",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {}
+}

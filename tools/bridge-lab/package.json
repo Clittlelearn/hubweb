@@ -1,0 +1,40 @@
+{
+  "name": "hub-bridge-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "compile": "node compile.mjs",
+    "chain": "node chain.mjs",
+    "deploy": "node deploy.mjs",
+    "relay": "node relay.mjs",
+    "test": "node --import tsx --test wallet-session.test.ts bridge-client.test.ts bridge-deployment.test.ts transaction-confirmation.test.ts bridge-rpc-plugin.test.ts bridge-transfer-recovery.test.ts start-environment.test.mjs",
+    "test:deployment": "node --import tsx test-deployment-chain.ts",
+    "test:deployment-ui": "node test-deployment-ui.mjs",
+    "test:flow-balance-ui": "node test-flow-balance-ui.mjs",
+    "test:wallet-names": "node test-wallet-token-names.mjs",
+    "test:wallet-state": "node test-wallet-state-ui.mjs",
+    "test:okx-wallet": "node test-okx-wallet-ui.mjs",
+    "test:metadata-compat": "node test-token-metadata-compat.mjs",
+    "test:catalog-progressive": "node test-token-catalog-progressive.mjs",
+    "test:governance-tokens": "node test-governance-token-details.mjs",
+    "test:governance-wallet": "node test-governance-wallet-ui.mjs",
+    "test:lan-api": "node test-lan-api.mjs",
+    "test:chain": "node smoke.mjs",
+    "test:ui": "node ui-test.mjs",
+    "services:start": "node services.mjs start",
+    "services:stop": "node services.mjs stop",
+    "environment:start": "node start-environment.mjs",
+    "environment:check": "node start-environment.mjs --check"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "4.9.6",
+    "@openzeppelin/contracts-upgradeable": "4.9.6",
+    "ethers": "6.16.0",
+    "ganache": "7.9.2",
+    "solc": "0.8.19"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.58.2",
+    "tsx": "4.20.6"
+  }
+}

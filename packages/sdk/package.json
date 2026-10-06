@@ -1,0 +1,34 @@
+{
+  "name": "@openhive/sdk",
+  "version": "0.1.0",
+  "description": "TypeScript SDK for interacting with the OpenHive chain — build, sign, and broadcast lock, stake, vote, and transfer transactions via EVM-compatible wallets.",
+  "type": "module",
+  "author": "",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "utils",
+    "typescript"
+  ],
+  "dependencies": {
+    "ethers": "^6.16.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
